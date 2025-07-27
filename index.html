@@ -6,10 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LupinTime</title>
     <link href="https://fonts.googleapis.com/css2?family=Pretendard&display=swap" rel="stylesheet" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T0Q2NGQVPW"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-T0Q2NGQVPW');
+    </script>
+
+  
+
+    
     <style>
         * {
             box-sizing: border-box;
             font-family: 'Pretendard', sans-serif;
+            margin: 0;
+            padding: 0;
         }
 
         body {
@@ -24,16 +40,53 @@
 
         .page {
             display: none;
-            padding: 30px;
+            padding: 20px;
             max-width: 768px;
             margin: 0 auto;
-            margin-top: 40px;
         }
 
         .topbar {
             display: flex;
             align-items: center;
             margin-bottom: 10px;
+        }
+
+        .page2_input #netSalary {
+            font-size: 32px;
+            background: #3D3F46;
+            color: #fff;
+            border: none;
+            border-radius: 15px;
+            padding: 15px;
+            text-align: right;
+            width: 190px;
+            height: 45px;
+        }
+
+        .page2_input .sal_wrap {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            flex-direction: row;
+            text-align: center;
+        }
+
+        .page2_input .sal_text {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 4px;
+            margin-left: 2px;
+        }
+
+        .info_noti_text {
+            text-align: center;
+            margin-top: 60px;
+            color: #cecece;
+        }
+
+        .info_in {
+            margin-top: 200px;
+            text-align: center;
         }
 
         .back-btn {
@@ -48,16 +101,22 @@
             display: block;
         }
 
-        h2 {
+        .intit_text {
             font-size: 25px;
             margin-bottom: 10px;
+            margin-top: 70px;
         }
 
         .desc {
             font-size: 14px;
             color: #888;
             margin-bottom: 90px;
+        }
 
+        .info_desc {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 10px;
         }
 
         label {
@@ -76,7 +135,7 @@
             color: #fff;
             padding: 10px;
             border-radius: 10px;
-            width: 120px;
+            width: 80px;
             text-align: right;
             margin-right: 5px;
             font-weight: 600;
@@ -88,7 +147,7 @@
         }
 
         .btn {
-            width: calc(100% - 30px);
+            width: calc(100% - 40px);
             background: #7f5af0;
             color: #000;
             font-weight: bold;
@@ -96,7 +155,6 @@
             padding: 15px;
             text-align: center;
             border-radius: 10px;
-            /* margin-top: 30px; */
             cursor: pointer;
             position: absolute;
             bottom: 40px;
@@ -123,7 +181,7 @@
             background: #7f5af0;
             color: #1F2125;
             border-radius: 15px;
-            padding: 15px 15px;
+            padding: 12px 16px;
             font-size: 16px;
             font-weight: 800;
             cursor: pointer;
@@ -137,24 +195,84 @@
             font-weight: 400;
         }
 
-        .summary-box {
-            background: radial-gradient(circle, #7f5af0, #000);
+
+
+        .page3_result .summary_per {
+            color: #cecece;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        .reslut_price {
+            font-size: 14px;
+            /* margin: initial; */
+            margin-bottom: 5px;
+            color: #ffffffba;
+        }
+
+        .summary_box .amount {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .amount p {
+            text-shadow: 0px 0px 14px #00000069;
+            /* margin: initial; */
+        }
+
+        .amount p span {
+            text-shadow: 0px 0px 14px #00000069;
+        }
+
+        .amount_won {
+            display: inline-block;
+            font-size: 17px;
+            font-weight: 200;
+        }
+
+        .summary_box {
+            position: relative;
+            background: linear-gradient(to top,
+                    rgba(121, 38, 255, 0) 0%,
+                    rgba(102, 29, 219, 0.17) 53%,
+                    rgba(85, 22, 189, 1) 100%);
             text-align: center;
             padding: 40px 20px;
             border-radius: 50%;
             margin: 30px auto;
-            width: 260px;
-            height: 260px;
+            width: 250px;
+            height: 250px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            overflow: hidden;
         }
 
-        .summary-box .amount {
-            font-size: 28px;
-            font-weight: bold;
+        .summary_box::before {
+            content: "";
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: linear-gradient(to top,
+                    rgba(121, 38, 255, 0) 0%,
+                    rgba(102, 29, 219, 0.17) 53%,
+                    rgba(85, 22, 189, 1) 100%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
         }
+
+        .summary_box>* {
+            position: relative;
+            z-index: 1;
+            /* 내용이 위에 보이도록 */
+        }
+
+
+
 
         .row {
             display: flex;
@@ -166,11 +284,14 @@
         .row button {
             background: #7f5af0;
             border: none;
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 10px;
-            font-size: 14px;
+            padding: 12px 16px;
+            border-radius: 15px;
+            font-size: 16px;
             cursor: pointer;
+            color: #1F2125;
+            border-radius: 15px;
+            font-weight: bold;
+
         }
 
         .add-btn {
@@ -198,7 +319,7 @@
 
     <!-- Step 1 -->
     <div class="page" id="page1">
-        <h2>급여 정보를 알려주세요</h2>
+        <h2 class="intit_text">급여 정보를 알려주세요</h2>
         <div class="desc">나중에 얼마든지 바꿀 수 있어요</div>
         <label>연봉 <span class="unit"><input type="number" id="salary" /> 만원</span></label>
         <label>일일 근무시간 <span class="unit"><input type="number" id="dailyHours" /> 시간</span></label>
@@ -209,27 +330,39 @@
     </div>
 
     <!-- Step 2 -->
-    <div class="page" id="page2">
+    <div class="page page2_input" id="page2">
         <div class="topbar">
             <button class="back-btn" id="backBtn">&larr;</button>
         </div>
-        <div class="desc">나의 월급은?</div>
-        <input type="text" id="netSalary"
-            style="font-size:24px; background:#3D3F46; color:#fff; border:none; border-radius:10px; padding:15px; text-align:right; width:100%;" />
-        <div style="text-align:center; margin-top:15px;">위 금액을 기준으로 루팡타임이 시작돼요!</div>
+
+        <div class="info_in">
+            <div class="info_desc">나의 월급은?</div>
+
+            <div class="sal_wrap">
+                <input type="text" id="netSalary" class="" />
+                <span class="sal_text">원</span>
+            </div>
+
+            <p class="info_noti_text">위 금액을 기준으로 루팡타임이 시작돼요!</p>
+        </div>
+
         <button class="btn" id="toStep3">다음</button>
     </div>
 
     <!-- Step 3 -->
-    <div class="page" id="page3">
+    <div class="page page3_result" id="page3">
         <div style="display:flex; justify-content:space-between; align-items:center;">
             <h2>LupinTime</h2>
             <button id="edit" style="color:#888; background:none; border:none; cursor:pointer;">급여수정</button>
         </div>
-        <div class="summary-box">
-            <div class="amount" id="earned">0 원</div>
-            <div style="font-size:14px; color:#ccc;">/ <span id="base">0</span> 원</div>
+        <div class="summary_box">
+            <p class="reslut_price">루팡한 금액</p>
+            <div class="amount" id="earned">
+                <p>0 <span class="amount_won">원</span></p>
+            </div>
+            <div class="summary_per">/ <span id="base">0</span> 원</div>
         </div>
+
         <div style="text-align:center; color:#888; font-size:14px;">
             월급의 <span id="percent">0%</span>를 루팡했어요!
         </div>

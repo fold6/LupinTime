@@ -1,6 +1,8 @@
 # LupinTime  (앱 명 : 월루타임_LupinTime)
-dddddd<br>
-(A responsive web/Android app that) <br><br>
+월루, 다들하시죠? '취직하면 똥싸면서(담배피면서)도 돈번다' 라는 말이 있습니다ㅎ<br>
+과연 월루로 돈을 얼마나 벌고있을지.. 제대로 체크해볼까요? 🧐 <br>
+(월급의 몇%나 월루했는지도 보여드려요! 설마... 월급의 50%이상을 월루하는 사람은 없겠..있겠..없겠죠..?ㅋㅋ;)
+<br><br>
 
 📌[웹 바로가기](https://fold6.github.io/LupinTime/index.html) <br>
 
@@ -9,6 +11,6 @@ dddddd<br>
 <br>
 
 ## 기능 및 특징
-- 반응형 웹 페이지
-- 안드로이드 웹/앱 (Playstore 다운가능)
-- 
+- 연봉에 따른 월급 계산
+- 월급에 대한 월루비율 (%) 계산
+- 모바일 기반 웹 / 앱 (Playstore 다운가능) < 준비중 >
