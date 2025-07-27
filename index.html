@@ -134,15 +134,17 @@
         input[type="number"],
         input[type="text"] {
             background: #3D3F46;
-            border: none;
-            color: #fff;
-            padding: 10px;
-            border-radius: 10px;
-            width: 80px;
-            text-align: right;
-            margin-right: 5px;
-            font-weight: 600;
-            font-size: 16px;
+    border: none;
+    color: #fff;
+    padding-right: 10px;
+    border-radius: 10px;
+    width: 80px;
+    text-align: right;
+    margin-right: 5px;
+    font-weight: 600;
+    font-size: 16px;
+    height: 40px;
+    line-height: 40px;
         }
 
         .unit {
@@ -184,10 +186,13 @@
             background: #7f5af0;
             color: #1F2125;
             border-radius: 15px;
-            padding: 12px 16px;
             font-size: 16px;
+            height: 45px;
             font-weight: 800;
+            width: 80px;
             cursor: pointer;
+            line-height: 45px;
+            text-align: center;
         }
 
         #skipToStep2 {
@@ -220,19 +225,17 @@
 
         .reslut_price {
             font-size: 14px;
-            /* margin: initial; */
             margin-bottom: 5px;
             color: #ffffffba;
         }
 
         .summary_box .amount {
-            font-size: 28px;
+            font-size: 33px;
             font-weight: bold;
         }
 
         .amount p {
             text-shadow: 0px 0px 14px #00000069;
-            /* margin: initial; */
         }
 
         .amount p span {
@@ -298,14 +301,16 @@
 
         .row button {
             background: #7f5af0;
-            border: none;
-            padding: 12px 16px;
-            border-radius: 15px;
-            font-size: 16px;
-            cursor: pointer;
-            color: #1F2125;
-            border-radius: 15px;
-            font-weight: bold;
+    border: none;
+    padding: inherit;
+    border-radius: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    color: #1F2125;
+    border-radius: 15px;
+    font-weight: bold;
+    height: 45px;
+    line-height: 45px;
 
         }
 
@@ -498,7 +503,8 @@
                 if (!saved || !saved.net || !min) return;
                 const lupin = calculateLupinEarned(min, saved.net, saved.hoursPerDay, saved
                     .daysPerWeek);
-                $('#earned').text(`${lupin.toLocaleString()} 원`);
+                    $('#earned').html(`${lupin.toLocaleString()} <span class="amount_won">원</span>`);
+
                 $('#percent').text(saved.net > 0 ? `${((lupin / saved.net) * 100).toFixed(1)}%` : '0%');
             });
 
