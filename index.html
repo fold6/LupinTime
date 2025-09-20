@@ -20,9 +20,6 @@
         gtag('config', 'G-T0Q2NGQVPW');
     </script>
 
-
-
-
     <style>
         * {
             box-sizing: border-box;
@@ -93,7 +90,7 @@
         }
 
         .info_in {
-            margin-top: 200px;
+            margin-top: 170px;
             text-align: center;
         }
 
@@ -112,7 +109,7 @@
         .intit_text {
             font-size: 25px;
             margin-bottom: 10px;
-            margin-top: 70px;
+            margin-top: 50px;
         }
 
         .desc {
@@ -131,7 +128,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin: 30px 0;
+            margin: 30px 0 10px 0;
             font-size: 16px;
             color: #ccc;
         }
@@ -150,7 +147,7 @@
             font-size: 16px;
             height: 40px;
             line-height: 40px;
-            
+
         }
 
         .unit {
@@ -188,6 +185,7 @@
         .btn:disabled:hover {
             background: #323439;
         }
+
         .toggle {
             background: #7f5af0;
             color: #1F2125;
@@ -302,31 +300,7 @@
             display: flex;
             justify-content: center;
             gap: 10px;
-            margin: 20px 0;
-            background-color: #666;
         }
-        /*row버튼(3분 5분...) ripple 넣기 하는 중 */
-        /*row버튼(3분 5분...) ripple 넣기 하는 중 */
-        /*row버튼(3분 5분...) ripple 넣기 하는 중 */
-        /*row버튼(3분 5분...) ripple 넣기 하는 중 */
-        /*row버튼(3분 5분...) ripple 넣기 하는 중 */
-        /*row버튼(3분 5분...) ripple 넣기 하는 중 */
-        /*row버튼(3분 5분...) ripple 넣기 하는 중 */
-        /*row버튼(3분 5분...) ripple 넣기 하는 중 */
-        /*row버튼(3분 5분...) ripple 넣기 하는 중 */
-        /*row버튼(3분 5분...) ripple 넣기 하는 중 */
-        /*row버튼(3분 5분...) ripple 넣기 하는 중 */
-        /*row버튼(3분 5분...) ripple 넣기 하는 중 */
-        /*row버튼(3분 5분...) ripple 넣기 하는 중 */
-        /*row버튼(3분 5분...) ripple 넣기 하는 중 */
-        /*row버튼(3분 5분...) ripple 넣기 하는 중 */
-        /*row버튼(3분 5분...) ripple 넣기 하는 중 */
-        /*row버튼(3분 5분...) ripple 넣기 하는 중 */
-        /*row버튼(3분 5분...) ripple 넣기 하는 중 */
-        /*row버튼(3분 5분...) ripple 넣기 하는 중 */
-        /*row버튼(3분 5분...) ripple 넣기 하는 중 */
-        /*row버튼(3분 5분...) ripple 넣기 하는 중 */
-        /*row버튼(3분 5분...) ripple 넣기 하는 중 */
 
         .row button {
             background: #7f5af0;
@@ -358,50 +332,73 @@
         }
 
 
-.ripple {
-    position: fixed;
-    /* border-radius: 8px; */
-}
-
-    .ripple:after {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-position: center;
-    transition: background 0.5s;
-    border-radius: inherit;
-}
-
-
-.ripple:active:after {
-     background-color: #ffffff46;
-     background-size: 100%;
-     transition: background 0s;
-     z-index: 11;
-     /* 레이어를 뒤로 이동시켜 이미지 위에 나타나게 함 */
-}
-
-/*  PC.ver  */
-/* pc일때만 호버 */
-@media (min-width: 1024px) {
-
-    .btn:hover {
-            background-color: #916cff;
-            transition: .2s;
-        }
-        
-        .add-btn:hover {
-            background-color: #916cff;
-            transition: .2s;
+        .ripple {
+            position: fixed;
         }
 
-}
+        .ripple:after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-position: center;
+            transition: background 0.5s;
+            border-radius: inherit;
+        }
+
+
+        .ripple:active:after {
+            background-color: #ffffff46;
+            background-size: 100%;
+            transition: background 0s;
+            z-index: 11;
+        }
+
+
+        /* row 안 add-btn 전용 ripple */
+        .row .add-btn {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .row .add-btn::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffffff46;
+            /* 원래 주신 반투명 흰색 */
+            opacity: 0;
+            transition: opacity 0.5s;
+            border-radius: inherit;
+        }
+
+        .row .add-btn:active::after {
+            opacity: 1;
+            transition: opacity 0s;
+        }
 
 
 
+        /*  PC.ver  */
+        /* pc일때만 호버 */
+        @media (min-width: 1024px) {
+
+            .btn:hover {
+                background-color: #916cff;
+                transition: .2s;
+            }
+
+            .add-btn:hover {
+                background-color: #916cff;
+                transition: .2s;
+            }
+
+        }
     </style>
 </head>
 
@@ -468,14 +465,13 @@
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script>
-        
         const storageKey = 'lupinData';
         let taxRate = 0.094;
         let taxOn = true;
 
         function validateStep1() {
             const filled = $('#salary').val() && $('#dailyHours').val() && $('#weeklyDays').val();
-            $('#toStep2').prop('disabled', !filled) .addClass('ripple');
+            $('#toStep2').prop('disabled', !filled).addClass('ripple');
             // $('#toStep2').prop('disabled', !filled) ;
         }
 
@@ -596,9 +592,6 @@
                 }
             });
         });
-        // document.addEventListener("touchstart", function() {}, true);
-        /* pc일때만 호버살림 / mo 일때는 리플을 검 ㅇㅇ?  */
-        
     </script>
 </body>
 
